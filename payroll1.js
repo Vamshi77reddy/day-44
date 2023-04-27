@@ -68,3 +68,16 @@ const save = () => {
         let value = document.getElementById(id).value;
         return value;
     }
+    function createAndUpdateStorage(employeePayrollData){
+        let employeePayrollList = JSON.parse(localStorage.getItem("employeePeyrollList"));
+    
+        if(employeePayrollList != undefined){
+            employeePayrollList.push(employeePayrollData);
+        }
+        else{
+            employeePayrollList = [employeePayrollData];
+        }
+    
+        alert(employeePayrollList.toString());
+        localStorage.setItem("employeePeyrollList",JSON.stringify(employeePayrollList));
+    }
